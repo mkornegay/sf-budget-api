@@ -12,5 +12,8 @@ namespace Sf.Budget.Core.Domain.Budgets
 
         public ItemClassification? Classification { get; init; }
 
+        public decimal? Amount { get; set; }
+
+
     }
 }
