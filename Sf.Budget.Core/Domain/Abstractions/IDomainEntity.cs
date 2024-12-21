@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sf.Budget.Core.Domain.Abstractions
 {
-    public abstract class DomainEntity : IDomainEntity
+    public interface IDomainEntity
     {
-        public int Id { get; protected set; }
-       
+        int Id { get; }
     }
 }

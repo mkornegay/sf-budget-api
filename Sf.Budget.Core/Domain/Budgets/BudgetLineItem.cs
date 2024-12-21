@@ -1,18 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Sf.Budget.Core.Domain.Abstractions;
 
 namespace Sf.Budget.Core.Domain.Budgets
 {
-    public class BudgetLineItem : Abstractions.DomainEntity
+    public class BudgetLineItem : DomainEntity
     {
-        public int? BudgetCategoryId { get; init; }
+        public BudgetCategory? BudgetCategory { get; private set; }
 
-        public ItemClassification? Classification { get; init; }
+        public ItemClassification? Classification { get; private set; }
 
-        public decimal? Amount { get; set; }
+        public DateOnly TransactionDate { get; private set; }
+
+        public decimal? Amount { get; private set; }
+
+        public BudgetLineItem(BudgetCategory budgetCategory, ItemClassification itemClassification, DateOnly transactionDate, decimal amount)
+        {
+            BudgetCategory = budgetCategory;
+            Classification = itemClassification;
+            TransactionDate = transactionDate;
+            Amount = amount;
+        }
+
+        public void UpdateBudgetItem(BudgetCategory? budgetCategory, ItemClassification? itemClassification, DateOnly transactionDate, decimal? amount)
+        {
+            BudgetCategory = budgetCategory;
+            Classification = itemClassification;
+            TransactionDate = transactionDate;
+            Amount = amount;
+        }
 
 
     }

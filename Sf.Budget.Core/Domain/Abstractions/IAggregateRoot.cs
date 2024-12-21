@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace Sf.Budget.Core.Domain.Abstractions
 {
-    public interface IEntity
-    {
-        int Id { get; }
-    }
+    public interface IAggregateRoot {}
 }
